@@ -9,23 +9,22 @@ There are various install options available depending on the operating system yo
 These can be found here: https://ambermd.org/Installation.php
 
 # System Requirements
-Give some system requirements on the table below, so the programs that need to be installed for the benchmark to run. Below is a table of recommended minimum software versions that should be filled out:
 
-| Program   | Version 	| Description                                																									|
-| ---       |     --- 	| ---                                        																									|
-| cmake     | >=3.28.3	| A cross-platform build system generator widely used for managing software projects. 															|
-| tcsh      | >=6.24.10 | Is an enhanced version of the Berkeley UNIX C shell (csh)																						|
-| GNU make  | >=4.3     | A tool which controls the generation of executables and other non-source files of a program from the program's source files					|
+| Program   | Version 	| Description																	|
+| ---       |     --- 	| ---           		              													|
+| cmake     | >=3.28.3	| A cross-platform build system generator widely used for managing software projects.								|
+| tcsh      | >=6.24.10 | Is an enhanced version of the Berkeley UNIX C shell (csh)											|
+| GNU make  | >=4.3     | A tool which controls the generation of executables and other non-source files of a program from the program's source files			|
 | GCC       | >=13.3.0  | Is a collection of compilers from the GNU Project that support various programming languages, hardware architectures, and operating systems	|
-| GFORTRAN  | >=13.3.0  | Is a part of GCC that is specifically tailored for compiling Fortran programs             													|
-| flex 	    | >=2.6.4  	| Fast lexical analyzer generator																												|
-| GNU bison | >=3.8.2  	| YACC-compatible parser generator																												|
-| GNU patch | >=2.7.6  	| Apply a diff file to an original												             													|
-| bc 	    | >=1.07.1  | GNU bc arbitrary precision calculator language																								|
-| GNU wget  | >=1.21.4  | retrieves files from the web																													|
-| xorg-dev  | >=7.7  	| X.Org X Window System development libraries																									|
-| libz-dev  | >=1.5.5  	| Fast lossless compression algorithm																											|
-| libbz2-dev| >=1.0.8  	| High-quality block-sorting file compressor library																							|
+| GFORTRAN  | >=13.3.0  | Is a part of GCC that is specifically tailored for compiling Fortran programs             							|
+| flex 	    | >=2.6.4  	| Fast lexical analyzer generator														|
+| GNU bison | >=3.8.2  	| YACC-compatible parser generator														|
+| GNU patch | >=2.7.6  	| Apply a diff file to an original												             	|
+| bc 	    | >=1.07.1  | GNU bc arbitrary precision calculator language												|
+| GNU wget  | >=1.21.4  | retrieves files from the web															|
+| xorg-dev  | >=7.7  	| X.Org X Window System development libraries													|
+| libz-dev  | >=1.5.5  	| Fast lossless compression algorithm														|
+| libbz2-dev| >=1.0.8  	| High-quality block-sorting file compressor library												|
 
 # Downloading the Source Code
 Give instructions on the different ways to get the required source code eg, git repo or from a website for the specific version of the source code that the students are required to do
