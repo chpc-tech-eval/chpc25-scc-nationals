@@ -63,7 +63,7 @@ The installation/destination directory should contain pmemd and pmemd.MPI (which
 Bear in mind the above is a basic installation with no optimization, intel compilers or math libraries being used.
 Once you are happy that the above is working and can perform the benchmarks you will need to optimize the compilation to try and get better performance. 
 
-# Benchmark 1:
+# Verification Tests:
 There are numerous test cases provided in amber_installation_directory/test
 Ensure the amber environment is set before running the test
 Then change to the directory and run the serial tests
