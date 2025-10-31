@@ -12,6 +12,40 @@ Team mentors are encouraged to support and motivate their teams. However, they m
 
 Team captains will each be issued a competition USB flash drive. This is how the teams may be given input files and how teams will submit their results. Only the Team captain can approach the organizers’ booth, to submit and/or receive any relevant input files. Only one Team captain is allowed at the organizer's booth at any time.
 
+# Challenge 
+
+Given a large batch of customer loan applications, implement a decision engine that determines loan eligibility for each application according to the provided business rules. Participants must optimize and parallelize the baseline MATLAB implementation to maximize throughput (decisions per second) on their cluster
+
+Optimize and parallelize the following funtion to maximise the throughput  
+```
+decideLoanEligibility_serial()
+```
+
+Run a benchmark test for your optimized function by running the following function
+```
+runBaselineBenchmark(1e5)
+```
+1e5 is the number of customer loan applications to be processed. This is a baseline amount, this can be set to a higher number for further testing.
+
+## Additional Information
+
+### Loan Eligibility
+The loan eligibility criteria is already included in the code and should not be modified. This section serves to provide context on the criteria
+
+The algorithm will reject any application if:
+- Age < 21 or Age > 75 (reason code: AGE)
+- Credit Score < 650 (CREDIT)
+- Number of Defaults > 0 (DEFAULT)
+- Employment Years < 1 (EMPLOYMENT)
+- Annual Income < 20,000 (INCOME)
+- Debt To Income Ratio = Existing Debt / Annual Income > 0.40 (DTI)
+- Requested Loan Amount > 4 × Annual Income (REQUEST_SIZE)
+
+If none of the above rules reject the application, compute a risk score and accept only if score <= risk threshold:
+- Risk Score = weighted sum of normalized features (higher means riskier).
+- Accept if Risk Score <= 0.5; otherwise reject with reason code RISK_HIGH.
+- If accepted, use reason code APPROVED.
+
 ## Competition Rules: Submission Guidelines
 
 Benchmarks must be submitted by the deadline as specified in the timetable. Resubmission of a previously submitted benchmark will only be allowed if the benchmarks due on that day have been completed and submitted, and the benchmark being resubmitted was originally submitted before its due date. If a team misses a submission deadline and wishes to submit the benchmark for a pass, they may do so only if the benchmarks due on that day have already been submitted. A late submission penalty of 10% will be applied for each day the missed benchmark is late, calculated from its original submission date.
