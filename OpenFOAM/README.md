@@ -30,7 +30,7 @@ Let them know what to do after downloading, like navigating to the source direct
 This should be the simple "tutorial" type problem to ensure that the application or benchmark is installed , built and deployed correctly. This can be a serial and/or parallel run, give basic commnads on how to achieve this.
 
 
-# Benchmark 2: Larger Polymer System
+# Benchmark 2:
 This should be the main problem that needs to be solved. Give basic commnads on how to achieve this.
 
 
