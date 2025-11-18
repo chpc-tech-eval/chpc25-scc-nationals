@@ -1,0 +1,26 @@
+! Production dynamics at constant pressure and 300.0K
+&cntrl
+    imin = 0,	                        ! This is not a minimization run
+    nstlim = 25000,                     ! There will be 50ps portions
+    dt = 0.002,                         ! Time step of 2.0fs
+    irest = 1,                          ! Restart from previous saved restart file
+    ntx = 5,                            ! Coordinates and velocites are read in
+    ig = -1,	                        ! Random seed based on current date and time
+    temp0 = 300.0,                      ! Reference temp of 300.0 K 
+    ntc = 2,	                        ! Bonds involving H are constrained  
+    ntf = 2, 	                        ! Bonds involving H are omitted from force evaluation
+    tol = 0.00001,                      ! Tolerance error is 0.00001 Angstroms
+    ntwx = 250,                         ! Coordinates written to mdcrd 
+    ntwe = 0, 	                        ! No mden files are written
+    ntwr = 250,                         ! Steps in which restart files are written
+    ntpr = 250,                         ! Steps in which mdout and mdinfo files are written
+    cut = 10.0,                         ! The non-bonded cutoff is 10.0 Angstrom 
+    iwrap = 0,	                        ! No wrapping performed
+    ntt = 3,	                        ! Langevin thermostat for temp control  	 
+    gamma_ln=1.,                        ! The collision frequency gamma is set to 1ps
+    ntb = 2, 	                        ! Constant pressure
+    ntp = 1,	                        ! Use isotropic position scaling
+    barostat = 2,                       ! Use the Monte Carlo barostat
+    ioutfm = 1,	                        ! The format of the coordinate and velocity trajectory files written as binary NetCDF
+    ntxo = 2,	                        ! The restart file format is NetCDF
+/
