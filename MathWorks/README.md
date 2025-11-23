@@ -7,10 +7,12 @@ This project forms part of the CHPC Student Cluster competition, where participa
 
 # Installation Instructions
 
-Team Captains have been provided with the URL, Activation Key and Licensing information required to download, install and activate their MATLAB deployments.
+Teams have been provided with the URL, Activation Key and Licensing information required to download, install and activate their MATLAB deployments.
 
 1. Use the link provided to navigate to the MATLAB CHPC Workshop Workspace:
    <p align="center"><img alt="Matlab CHPC Workshop Workspace" src="./resources/chpc_matlab_workshop.png" width=600 /></p>
+
+1. You will required to sign in, you can do this with an existing account that you have or you can create an account. When you are logged in, that **sign up** button will turn to download software, check the **download Software** button.
 
 1. Download the 2024B Installation files for Linux:
    <p align="center"><img alt="Matlab 2024B Linux Installation" src="./resources/chpc_matlab_linux_2024b.png" width=600 /></p>
@@ -81,7 +83,8 @@ Team Captains have been provided with the URL, Activation Key and Licensing info
    ssh -X -i <PATH-TO-KEY> <USER>@<HEADNODE_IP>
    ```
 
-> [!WARNING]
+> WARNING !
+>
 > Should you have issues with how the MATLAB GUI is rendered on your local workstation or receive a number of errors, you can try remedy these by enabling the `ForwardX11Trusted` option `-Y` switch, which will prevent your `ssh` connection from being subjected to [X11 Security Extensions](https://www.x.org/wiki/Development/Documentation/Security/).
 
 ## Install MATLAB, Simulink and Associated Toolboxes
@@ -122,7 +125,8 @@ Team Captains have been provided with the URL, Activation Key and Licensing info
 
 You have successfully installed MATLAB!
 
-> [!WARNING]
+> WARNING !
+>
 > You are **STRONGLY** advised to install your MATLAB installations to a local, non-shared location. This will ensure that the License is correctly installed and configured for each the nodes in your cluster.
 
 # Benchmark: Monte Carlo Sampling Simulation (Calculating PI)
