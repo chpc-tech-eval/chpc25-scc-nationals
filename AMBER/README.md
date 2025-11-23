@@ -1,0 +1,146 @@
+AMBER
+===========
+
+Amber is a suite of biomolecular simulation programs.
+Amber is distributed in two parts: AmberTools25 and Amber24
+
+# Installation
+There are various install options available depending on the operating system you are making use of.
+These can be found here: https://ambermd.org/Installation.php.
+
+# System Requirements
+
+| Program    	| Version  | Description																|
+| ---        	|     ---  | ---           		              													|
+| cmake      	| >=3.28.3 | A cross-platform build system generator widely used for managing software projects.							|
+| tcsh       	| >=6.24.10| Is an enhanced version of the Berkeley UNIX C shell (csh)											|
+| GNU make   	| >=4.3    | A tool which controls the generation of executables and other non-source files of a program from the program's source files		|
+| GCC        	| >=13.3.0 | Is a collection of compilers from the GNU Project that support various programming languages, hardware architectures, and operating systems|
+| GFORTRAN   	| >=13.3.0 | Is a part of GCC that is specifically tailored for compiling Fortran programs             							|
+| g++		| >=13.2.0 | GNU G++ compiler																|
+| flex 	     	| >=2.6.4  | Fast lexical analyzer generator														|
+| GNU bison  	| >=3.8.2  | YACC-compatible parser generator														|
+| GNU patch  	| >=2.7.6  | Apply a diff file to an original												             	|
+| bc 	     	| >=1.07.1 | GNU bc arbitrary precision calculator language												|
+| GNU wget   	| >=1.21.4 | retrieves files from the web														|
+| bzip2		| >=1.0.8  | high-quality block-sorting file compressor													|
+| xorg-dev   	| >=7.7    | X.Org X Window System development libraries												|
+| libz-dev   	| >=1.5.5  | Fast lossless compression algorithm													|
+| libbz2-dev 	| >=1.0.8  | High-quality block-sorting file compressor library												|
+| openmpi-bin	| >=4.1.6  | High performance message passing library -- binaries											|
+| openmpi-common| >=4.1.6  | High performance message passing library -- common files											|
+| openssh-client| >=9.6	   | Secure shell (SSH) client, for secure access to remote machines										|
+
+# Downloading the Source Code
+AmberTools25 source code can be downloaded from: https://ambermd.org/GetAmber.php#ambertools (Ensure you supply your name and institution) 
+If you wish you can install AmberTools via conda, but this may result in some performance issues.
+Amber24 source code can be downloaded from: https://ambermd.org/GetAmber.php#ambertools (Ensure you supply your name and institution)
+
+## Building and Deploying
+* Unzip ambertools25.tar.bz2 and Amber24.tar.bz2
+You will find folders named ambertools25_src and amber24_src once you unzip the files.
+
+Move all relevant files and folders from amber24_src to ambertools25_src.
+```bash
+ mv amber24_src/benchmarks ambertools25_src/
+ mv amber24_src/examples ambertools25_src/
+ mv amber24_src/src ambertools25_src/
+ cp -r amber24_src/test/* ambertools25_src/test/
+ ```
+
+Remove the amber24_src
+```bash
+  rm -r amber24_src
+```
+Change to the ambertools25_src/build directory and edit the `run_cmake` script to change **-DCMAKE_INSTALL_PREFIX** to a location where you want your install to take place.
+
+Execute the `run_cmake` script.
+```bash
+make install -j[number of processors]
+```
+
+**Should you encounter an error related to 'conda-libmamba-solver', first "export CONDA_SOLVER=classic" then execute the run_cmake script.**
+
+This will do a parallel build over the number of processors specified and the resulting serial version of the code will be located in your destination directory specified above
+
+ Once done you can edit the `run_cmake script` again, but this time enable MPI to build the parallel version of the code.
+
+Execute the run_cmake again. 
+
+This will do a parallel build over the number of processors specified and the resulting parallel version of the code will be located in your destination directory
+
+The installation/destination directory should contain `pmemd` and `pmemd.MPI` (which come with Amber24) applications as these are the ones that will allow for the molecular dynamics simulations. One can use sander and sander.MPI instead (which come with AmberTools25), but it will probably not give you as good performance.
+
+Bear in mind the above is a basic installation with no optimization, intel compilers or math libraries being used.
+
+Once you are happy that the above is working and can perform the benchmarks you will need to optimize the compilation to try and get better performance. 
+
+# Benchmark 1:
+There are numerous test cases provided in `amber_installation_directory/test`
+Ensure the amber environment is set before running the test.
+
+Then change to the directory and run the serial tests
+
+```bash
+source amber_installation_directory/amber.sh
+cd amber_installation_directory/test
+make test
+```
+If application is installed correctly then most tests should PASS (209 file comparisons passed, 4 file comparisons failed, 4 tests experienced errors)
+
+For a parallel test you first need to set a variable
+```bash
+ export DO_PARALLEL='mpirun -np [number of processors]'
+ make test.parallel
+``` 
+If application is installed correctly then most tests should PASS (depending on number of processors used: 269 file comparisons passed, 28 file comparisons failed, 4 tests experienced an error)
+
+# Benchmark 2: Larger Biological System
+The main system that will be tested is a complex made up of the SAR-CoV-2 main protease (7BQY) and a natural product (Acteoside)
+The simulation is meant to help you determine how well/poorly the natural product functions when in the active site of 7BQY. 
+Conventional dynamics requires minimization, heating and relaxation prior to doing production dynamics. These steps have already been done for you.
+You will only run the production phase, which is currently 50 picoseconds (very small for actual production which can go up to 500 nanoseconds, but good enough to give you an idea of how fast/slow your simulation runs)
+
+**You will need the files provided in the benchmark_2 folder (located in the same place as this README file)**
+
+Use the following to run the benchmark in serial:
+
+```bash
+source amber_installation_directory/amber.sh
+pmemd -O -i prod.in -o prod.out -p com_solvated.parm7 -c relax6.rst7 -r prod.rst7 -inf prod.info -ref relax6.rst7 -x prod.nc
+```
+
+**The serial run will take a considerable amount of time, so it is advisable to rather change the above to run the simulation in parallel over various cores instead.**
+
+The info file will provide you with the "Average timings for all steps" and you want to obtain the ns/day.
+
+The goal is to obtain as high a number for the ns/day as possible. 
+
+# Visualization
+Download VMD from: https://www.ks.uiuc.edu/Research/vmd (Ensure you register so you can download the package)
+* Unzip the file which has been downloaded and change to the resulting directory
+Look at the `README` provided in the directory and follow the instructions located under "Quick Installation Instructions" to have the application installed
+
+Before visualization you need to ensure the trajectories are imaged correctly or you will find atoms flying out of your simulation box. To do this you need to use the cpptraj tool in Amber:
+```bash
+  source amber_installation_directory/amber.sh
+  cpptraj
+   > parm com_solvated.parm7
+   > trajin prod.nc
+   > autoimage
+   > trajout prod_reimaged.nc
+   > run
+   > exit
+```
+
+Visualize and animate the reimaged trajectories that where generated in Benchmark 2 
+* vmd -parm7 com_solvated.parm7 -netcdf prod_reimaged.nc
+
+You should be able to play a video from what was generated during dynamics
+Try to remove the waters and change up the protein and acteoside representations
+Try and save a movie that shows the motion of only the protein and acteoside (without the water box) over the period of the dynamics 
+
+# Submission
+Provide your benchmark results showing number of CPU cores vs nanoseconds/day along with explanation thereof.
+
+Short video showing the molecular dynamics animation of 7BQY and Acteoside complex
