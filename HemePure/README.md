@@ -26,7 +26,7 @@ Install or build your choice of `C/C++` and `MPI` compiler implementations, `Boo
 * [ParMETIS](https://github.com/KarypisLab/ParMETIS).
 
 > [!TIP]
-> You may make use of GKlib, METIS and ParMETIS libraries that you build and compile yourself from [https://github.com/KarypisLab/]'s' GitHub repo or any other reputable source of the ParMETIS source code.
+> You may make use of GKlib, METIS and ParMETIS libraries that you build and compile yourself from [Prof Karypis' GitHub repo](https://github.com/KarypisLab/) or any other reputable source of the ParMETIS source code.
 
 ## Building HemePure
 
@@ -62,8 +62,11 @@ From the main `HemePure` folder from the GitHub repository you'd cloned earlier,
 cd examples/bifurcation/bifurcation_hires/
 ```
 
-## Examining the `input.xml` file
-
+## Examining the input XML file
+```
+# Your choice of text editor nano / vim
+vim input.xml
+```
 > [!CAUTION]
 > You do not need to edit any variables in this file!
 
@@ -100,4 +103,50 @@ You are required to complete all time steps of the simulation and to your object
 
 # Benchmark Visualization
 
+You will now visually inspect the evolution of the flow within the simulation.
 
+## Analysis of Results
+
+Use the provided `hemeXtract` tool to convert the compressed output data files, into a human readable format compatible with [ParaView](https://www.paraview.org/).
+
+```
+# make the tool executable
+chmod +x ../../hemeXtract
+../../hemeXtract -X output/Extracted/whole.dat > readable-output.txt
+```
+
+> [!IMPORTANT]
+> Decide if you will be running ParaView on your personal laptop or on one of your competition nodes. ParaView can specifically be run in a Client-Server mode, alternatively, instructions will be provided to run it exclusively over an X11 SSH tunnel.
+
+Use the provided `paraviewProcessing.sh` shell script to prepare your `readable-output` file for processing within ParaView.
+```
+# Either copy your readable-output.txt file to your laptop, or copy the script into your <OUTPUT_DIR>
+chmod +x paraviewProcessing.sh
+./paraviewProcessing.sh readable-output.txt paraview_file
+```
+
+## Install ParaView
+
+Follow the instructions [here](https://gitlab.kitware.com/paraview/paraview) to build, paying careful attention to dependencies.
+
+After configuring the dependencies for your specific environment, retrieve a copy of the source from GitHub and build it using:
+```
+git clone --recursive https://gitlab.kitware.com/paraview/paraview.git
+mkdir paraview_build
+cd paraview_build
+cmake -GNinja -DPARAVIEW_USE_PYTHON=ON -DPARAVIEW_USE_MPI=ON -DVTK_SMP_IMPLEMENTATION_TYPE=TBB -DCMAKE_BUILD_TYPE=Release ../paraview
+ninja
+```
+
+### Configure SSH X11 Forwarding 
+* Install `xorg-server` and `xorg-xauth`, and
+* Ensure your SSH server is configured for `X11Forwarding`.
+
+Start ParaView by executing its binary:
+```
+bin/paraview
+```
+
+## Visualizing Results
+
+# Required Submission
