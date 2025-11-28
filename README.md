@@ -32,7 +32,7 @@ Rulings and decisions from the competition organizers and judges are final.
 Good Luck!
 
 # Timetable
-TBA
+![CHPC2025 Nationals Timetable](CHPC_2025_National_Timetable.png)
 
 
 # Scoring
@@ -93,3 +93,6 @@ Below is a table with a number of Linux system commands and utilities that you *
 | proc               | Information and control center of the kernel, providing a communications channel between kernel space and user space. Many of the preceding commands query information provided by proc, i.e. `cat /proc/cpuinfo`. |
 | uname              | Useful for determining information about your current flavor and distribution of your operating system and its version.                                                                                            |
 | lsblk              | Provides information about block devices (disks, hard drives, flash drives, etc) connected to your system and their partitioning schemes.                                                                          
+
+
+[def]: ./CHPC_2025_SCC_National_Timetable.png
