@@ -32,7 +32,7 @@ Rulings and decisions from the competition organizers and judges are final.
 Good Luck!
 
 # Timetable
-TBA
+![CHPC2025 Nationals Timetable](./CHPC_2025_SCC_National_Timetable.png)
 
 
 # Scoring
