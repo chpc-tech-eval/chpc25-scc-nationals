@@ -107,7 +107,7 @@ You will now visually inspect the evolution of the flow within the simulation.
 
 ## Analysis of Results
 
-Use the provided `hemeXtract` tool to convert the compressed output data files, into a human readable format compatible with [ParaView](https://www.paraview.org/).
+Use the tool provided with the HemePure GitHub repository `hemeXtract`, convert the compressed output data files, into a human readable format compatible with [ParaView](https://www.paraview.org/).
 
 ```
 # make the tool executable
@@ -118,7 +118,7 @@ chmod +x ../../hemeXtract
 > [!IMPORTANT]
 > Decide if you will be running ParaView on your personal laptop or on one of your competition nodes. ParaView can specifically be run in a Client-Server mode (where you would need to install the same version on your laptop and compute node), alternatively, instructions will be provided to run it exclusively over an X11 SSH tunnel.
 
-Use the provided `paraviewProcessing.sh` shell script to prepare your `readable-output` file for processing within ParaView.
+Use the provided here [./paraviewProcessing.sh] shell script to prepare your `readable-output` file for processing within ParaView.
 ```
 # Either copy your readable-output.txt file to your laptop, or copy the script into your <OUTPUT_DIR>
 chmod +x paraviewProcessing.sh
@@ -164,7 +164,7 @@ You will now be generating a vizualization of the benchmark. Remember to `Apply`
 1. Navigate to `Filters` &rarr; `Alphabetical`, and select the option `Table to Points`:
    <p align="center"><img alt="Paraview Open Group." src="./resources/paraview_03.png" width=600 /></p>
 
-1. Ensure that `X Column` rarr; `gridX`, `Y Column` rarr; `gridy` and `Z Column` rarr; `gridZ` respectively, that the `RenderView Panel` is active, i.e. eyeball next to selection option in the Pipeline Browser (top left windows), and that you set the rendering option `Solid Color` rarr; `velZ` in the drop-down menu above that:
+1. Ensure that `X Column` &rarr; `gridX`, `Y Column` &rarr; `gridy` and `Z Column` &rarr; `gridZ` respectively, that the `RenderView Panel` is active, i.e. eyeball next to selection option in the Pipeline Browser (top left windows), and that you set the rendering option `Solid Color` &rarr; `velZ` in the drop-down menu above that:
 
 <p align="center"><img alt="Paraview Open Group." src="./resources/paraview_04.png" width=600 /></p>
 
@@ -174,7 +174,7 @@ You will now be generating a vizualization of the benchmark. Remember to `Apply`
 
 # Benchmark Optimization
 
-Tune the performance of your benchmark to submit your optimal run for 100 000 steps. I.e. edit the `input.xml` file such that the number of steps changes from `5000` rarr; `100000`:
+Tune the performance of your benchmark to submit your optimal run for **100 000** steps. I.e. edit the `input.xml` file such that the number of steps changes from `5000` &rarr; `100000`:
 ```
 <hemelbsettings version="3">
   <simulation>
@@ -193,7 +193,7 @@ Save the output files as `report_100000.txt` and `report_100000.xml`.
 
 # Required Submission
 
-You are required to submit a REAMD.md file explaining your submission (compilers, openmd, build process and parameters), your build and compilation scripts, your compiled binary, a png screenshot of your vizualization, your output files report.txt and report.xml for verification.
+You are required to submit a REAMD.md file explaining your submission (compilers, MPI, build process and parameters), your build and compilation scripts, your compiled binary, a png screenshot of your vizualization, your output files report.txt and report.xml for verification.
 
 This benchmark will be scored and evaluated according to:
 1. 5000 steps [2%]
