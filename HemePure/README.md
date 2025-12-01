@@ -51,7 +51,7 @@ make -j$(nprocs)
 ```
 
 > [!TIP]
-> Should your CPU architecture support it, consider additionally turning on AXV512 vectorization.
+> Should your CPU architecture support it, consider additionally turning on AXV512 vectorization. You must ensure that the variables `<METIS_DIR>` and `<PARMETIS_DIR>` exist (i.e. have been exported) in your environment.
 
 Should your application successfully compile, link and build, you will have `hemepure` binary executable in your build directory.
 
@@ -68,13 +68,13 @@ cd examples/bifurcation/bifurcation_hires/
 vim input.xml
 ```
 > [!CAUTION]
-> You do not need to edit any variables in this file!
+> You do not need to edit any variables in this file yet!
 
 This file details the various components used to conduct the simulation:
 ### Simulation information
-* Time step length
-* Total number of time steps
-* Lattice spacing / voxel size
+* Time step length `<step_length>`
+* Total number of time steps `<steps>` **NB: This is the only parameter you will be changing after you have completed your visualization**
+* Type of stress / Lattice spacing / voxel size
 * Simulation domain geometry
 * Initial conditions (pressure)
 
@@ -116,7 +116,7 @@ chmod +x ../../hemeXtract
 ```
 
 > [!IMPORTANT]
-> Decide if you will be running ParaView on your personal laptop or on one of your competition nodes. ParaView can specifically be run in a Client-Server mode, alternatively, instructions will be provided to run it exclusively over an X11 SSH tunnel.
+> Decide if you will be running ParaView on your personal laptop or on one of your competition nodes. ParaView can specifically be run in a Client-Server mode (where you would need to install the same version on your laptop and compute node), alternatively, instructions will be provided to run it exclusively over an X11 SSH tunnel.
 
 Use the provided `paraviewProcessing.sh` shell script to prepare your `readable-output` file for processing within ParaView.
 ```
@@ -138,7 +138,7 @@ cmake -GNinja -DPARAVIEW_USE_PYTHON=ON -DPARAVIEW_USE_MPI=ON -DVTK_SMP_IMPLEMENT
 ninja
 ```
 
-### Configure SSH X11 Forwarding 
+### Configure SSH X11 Forwarding
 * Install `xorg-server` and `xorg-xauth`, and
 * Ensure your SSH server is configured for `X11Forwarding`.
 
@@ -149,4 +149,54 @@ bin/paraview
 
 ## Visualizing Results
 
+You will now be generating a vizualization of the benchmark. Remember to `Apply` changes at each step of the following instructions.
+
+1. Import the `Group` of files you'd created in the previous step:
+   `File` &rarr; `Open` &rarr; `paraview_file-<NAME>.txt`
+
+   <p align="center"><img alt="Paraview Open Group." src="./resources/paraview_01.png" width=600 /></p>
+
+1. Change the default Field Delimiter Character from a comma to a single space:
+   `,` &rarr; ` `
+
+   <p align="center"><img alt="Paraview Open Group." src="./resources/paraview_02.png" width=600 /></p>
+
+1. Navigate to `Filters` &rarr; `Alphabetical`, and select the option `Table to Points`:
+   <p align="center"><img alt="Paraview Open Group." src="./resources/paraview_03.png" width=600 /></p>
+
+1. Ensure that `X Column` rarr; `gridX`, `Y Column` rarr; `gridy` and `Z Column` rarr; `gridZ` respectively, that the `RenderView Panel` is active, i.e. eyeball next to selection option in the Pipeline Browser (top left windows), and that you set the rendering option `Solid Color` rarr; `velZ` in the drop-down menu above that:
+
+<p align="center"><img alt="Paraview Open Group." src="./resources/paraview_04.png" width=600 /></p>
+
+1. Prepare and save a visualization of the bifurcation inlet. You must call a competition organizer to come and view the time evolution (video) of your vizualization:
+
+   <p align="center"><img alt="Paraview Open Group." src="./resources/paraview_05.png" width=600 /></p>
+
+# Benchmark Optimization
+
+Tune the performance of your benchmark to submit your optimal run for 100 000 steps. I.e. edit the `input.xml` file such that the number of steps changes from `5000` rarr; `100000`:
+```
+<hemelbsettings version="3">
+  <simulation>
+    <step_length units="s" value="1e-5"/>
+    <steps units="lattice" value="100000"/>
+    <stresstype value="1"/>
+    <voxel_size units="m" value="5e-5"/>
+    <origin units="m" value="(0.0,0.0,0.0)"/>
+  </simulation>
+```
+
+Save the output files as `report_100000.txt` and `report_100000.xml`.
+
+> [!CAUTION]
+> Do not try and visualize this output!
+
 # Required Submission
+
+You are required to submit a REAMD.md file explaining your submission (compilers, openmd, build process and parameters), your build and compilation scripts, your compiled binary, a png screenshot of your vizualization, your output files report.txt and report.xml for verification.
+
+This benchmark will be scored and evaluated according to:
+1. 5000 steps [2%]
+1. Visualization [4%]
+1. 100000 steps [4%]
+
