@@ -135,14 +135,7 @@ To run your simulation, you need to call your executable and specify the input f
   --in=<your input file>  #It will have the .h5 extension
   --d="<your description>" # Can be anything 
   ```
-Run the provided verification script called `verify_benchmark2.py`, store the results in a text file.
-```bash
-python3 verify_benchmark2.py | tee benchmark2_verification.txt
-```
-
-
-# Visualization
-
+Edit the provided verification script called `verify_benchmark1.py` to verify the results from benchmark 2, store the results in a text file.
 
 # Submission
 
@@ -150,3 +143,4 @@ Submit for both benchmarks:
     
     - Your output file
     - Benchmark verification text file
+    - Details of the configuration of how the benchmark was ran
