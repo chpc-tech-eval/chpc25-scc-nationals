@@ -107,7 +107,7 @@ You will now visually inspect the evolution of the flow within the simulation.
 
 ## Analysis of Results
 
-Use the provided `hemeXtract` tool to convert the compressed output data files, into a human readable format compatible with [ParaView](https://www.paraview.org/).
+Use the tool provided with the HemePure GitHub repository `hemeXtract`, convert the compressed output data files, into a human readable format compatible with [ParaView](https://www.paraview.org/).
 
 ```
 # make the tool executable
@@ -118,7 +118,7 @@ chmod +x ../../hemeXtract
 > [!IMPORTANT]
 > Decide if you will be running ParaView on your personal laptop or on one of your competition nodes. ParaView can specifically be run in a Client-Server mode (where you would need to install the same version on your laptop and compute node), alternatively, instructions will be provided to run it exclusively over an X11 SSH tunnel.
 
-Use the provided `paraviewProcessing.sh` shell script to prepare your `readable-output` file for processing within ParaView.
+Use the provided here [./paraviewProcessing.sh] shell script to prepare your `readable-output` file for processing within ParaView.
 ```
 # Either copy your readable-output.txt file to your laptop, or copy the script into your <OUTPUT_DIR>
 chmod +x paraviewProcessing.sh
