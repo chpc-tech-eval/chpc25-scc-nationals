@@ -164,7 +164,7 @@ You will now be generating a vizualization of the benchmark. Remember to `Apply`
 1. Navigate to `Filters` &rarr; `Alphabetical`, and select the option `Table to Points`:
    <p align="center"><img alt="Paraview Open Group." src="./resources/paraview_03.png" width=600 /></p>
 
-1. Ensure that `X Column` rarr; `gridX`, `Y Column` rarr; `gridy` and `Z Column` rarr; `gridZ` respectively, that the `RenderView Panel` is active, i.e. eyeball next to selection option in the Pipeline Browser (top left windows), and that you set the rendering option `Solid Color` rarr; `velZ` in the drop-down menu above that:
+1. Ensure that `X Column` &rarr; `gridX`, `Y Column` &rarr; `gridy` and `Z Column` &rarr; `gridZ` respectively, that the `RenderView Panel` is active, i.e. eyeball next to selection option in the Pipeline Browser (top left windows), and that you set the rendering option `Solid Color` &rarr; `velZ` in the drop-down menu above that:
 
 <p align="center"><img alt="Paraview Open Group." src="./resources/paraview_04.png" width=600 /></p>
 
@@ -174,7 +174,7 @@ You will now be generating a vizualization of the benchmark. Remember to `Apply`
 
 # Benchmark Optimization
 
-Tune the performance of your benchmark to submit your optimal run for 100 000 steps. I.e. edit the `input.xml` file such that the number of steps changes from `5000` rarr; `100000`:
+Tune the performance of your benchmark to submit your optimal run for **100 000** steps. I.e. edit the `input.xml` file such that the number of steps changes from `5000` &rarr; `100000`:
 ```
 <hemelbsettings version="3">
   <simulation>
@@ -193,7 +193,7 @@ Save the output files as `report_100000.txt` and `report_100000.xml`.
 
 # Required Submission
 
-You are required to submit a REAMD.md file explaining your submission (compilers, openmd, build process and parameters), your build and compilation scripts, your compiled binary, a png screenshot of your vizualization, your output files report.txt and report.xml for verification.
+You are required to submit a REAMD.md file explaining your submission (compilers, MPI, build process and parameters), your build and compilation scripts, your compiled binary, a png screenshot of your vizualization, your output files report.txt and report.xml for verification.
 
 This benchmark will be scored and evaluated according to:
 1. 5000 steps [2%]
