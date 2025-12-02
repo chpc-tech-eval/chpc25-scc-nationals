@@ -99,4 +99,4 @@ You are required to submit a REAMD.md file explaining your submission (compilers
 This benchmark will be scored and evaluated according to:
 1. 10000 steps [2%]
 1. Table [4%]
-1. 100000 steps [4%]
+1. 200000 steps [4%]
