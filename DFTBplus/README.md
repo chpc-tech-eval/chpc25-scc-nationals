@@ -26,7 +26,7 @@ Before proceeding to build and install DFTB+ from source, ensure that you have a
    ```
 
    Typically this will install the binaries to `~/opt/dftb+`.
-1. Verify that your has been successfully built:
+1. Verify that your application binary has been successfully built:
    ```
    ls ~/opt/dftb+/bin
    ```
@@ -46,6 +46,7 @@ Before proceeding to build and install DFTB+ from source, ensure that you have a
    ```
 
 1. Hybrid Parallelism
+
    You will run and optimize the run for a hybrid, i.e. both OpenMP and MPI parallelism combined. Configure your OpenMP threads to correspond to the number of cores you have in each of your CPUs and your number of MPI Ranks to corresponded to the number of CPUs you have in your cluster.
    ```
    # Remember to set the number of OpenMP
@@ -89,9 +90,11 @@ Before proceeding to build and install DFTB+ from source, ensure that you have a
    MaxSCCIterations = 10000
    ```
 
+   Use the optimal combination of OpenMP threads to MPI Ranks that you'd determined from the table.
+
 # Required submission
 
-You are required to submit a REAMD.md file explaining your submission (compilers, MPI, build process and parameters), your build and compilation scripts, your compiled binary, your table comparing performance with varying OpenMP threads to MPI Ranks, your output files `md.out` and `output`report.xml for verification.
+You are required to submit a REAMD.md file explaining your submission (compilers, MPI, build process and parameters), your build and compilation scripts, your compiled binary, your table comparing performance with varying OpenMP threads to MPI Ranks, your output files `md.out` and `output` files for verification.
 
 This benchmark will be scored and evaluated according to:
 1. 10000 steps [2%]
