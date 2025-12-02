@@ -37,17 +37,17 @@ Good Luck!
 
 # Scoring
 
-| Application             | Weight | Breakdown                                                                                               |
-|-------------------------|--------|---------------------------------------------------------------------------------------------------------|
-| HPCC & HPCG             |  20%   | <ul><li>HPCC *[7.5%]*<ul><li>High Performance Linpack (HPL) *[5%]*</li></ul><li>HPCG *[7.5%]*</li></ul> |
-| AmberMD                 |  10%   |                                                                                                         |
-| ASCOT5                  |  10%   |                                                                                                         |
-| DFTB+                   |  10%   |                                                                                                         |
-| HemeLB                  |  10%   |                                                                                                         |
-| MathWorks               |  10%   |                                                                                                         |
-| OpenFOAM                |  10%   |                                                                                                         |
-| Project                 |  10%   | <ul><li> Mentor's Scores *[5%]*<li> Poster *[5%]*<ul>                                              |
-| Presentation            |  10%   | <ul><li>Judges' Scores *[5%]*<li>Cluster Configurations *[5%]*</ul>                                 |
+| Application  | Weight | Breakdown                                                                                               |
+|--------------|--------|---------------------------------------------------------------------------------------------------------|
+| HPCC & HPCG  | 20%    | <ul><li>HPCC *[7.5%]*<ul><li>High Performance Linpack (HPL) *[5%]*</li></ul><li>HPCG *[7.5%]*</li></ul> |
+| AmberMD      | 10%    |                                                                                                         |
+| ASCOT5       | 10%    |                                                                                                         |
+| DFTB+        | 10%    |                                                                                                         |
+| HemePure     | 10%    | <ul><li> 5000 steps *[2%]*<li> Visualization *[4%]*<li> 100 000 steps *[4%]*<ul>                                                   |
+| MathWorks    | 10%    |                                                                                                         |
+| OpenFOAM     | 10%    |                                                                                                         |
+| Project      | 10%    | <ul><li> Mentor's Scores *[5%]*<li> Poster *[5%]*<ul>                                                   |
+| Presentation | 10%    | <ul><li>Judges' Scores *[5%]*<li>Cluster Configurations *[5%]*</ul>                                     |
 
 # Instructions for Mentors
 
