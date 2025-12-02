@@ -41,8 +41,8 @@ This script file must be sourced in order to set up the compile and run environm
 In the subdirectory `OpenFOAM-v2506/tutorials` will be found many test cases with run scripts to validate that the software is operational. For example, the case tutorials/incompressible/simpleFoam/windAroundBuildings can be used. It has been used in modified form to create the three actual benchmark cases.
 
 
-# Benchmark 1, 2 and 3:
-There are three versions of this benchmark, using models of different sizes: 3.2 million cells, 10 million cells and 20 million cells.  All three use the same procedure:
+# Benchmark 1:
+For this benchmark you will be using the 3.2 million model, following this procedure:
 
 Build the case with the mesh generation application snappyHexMesh. **A script `makeCase.sh` has been provided for this purpose**. It does the following: creates a simple regular starting blockMesh, partitions this for parallel processing with the command decomposePar, runs snappyHexMesh in parallel, reconstructs the partitioned mesh, and renumbers the mesh for efficiency.  
 
@@ -82,6 +82,6 @@ For one of the benchmark cases, generate an image of the results.  OpenFOAM outp
 Paraview is commonly used on Linux workstations, but this requires X-windows, x-forwarding and OpenGL or Mesa libraries.  
 
 # Submission
-1. One representative visualization image
-2. For each of the three cases, the output file of the best result (minimum time) for that case, demonstrating that 250 time steps had been executed, and the time taken for all of these.
-3. For each of the three cases, a summary of the configuration used, specifically compiler, MPI, number of MPI ranks, number of nodes and process placement and binding parameters.
+1. Representative visualization image
+2. The output file of the best result (minimum time) for that case, demonstrating that 250 time steps had been executed, and the time taken.
+3. A summary of the configuration used, specifically compiler, MPI, number of MPI ranks, number of nodes and process placement and binding parameters.
