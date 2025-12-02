@@ -180,7 +180,7 @@ Replace `<MATLAB_BINARY_PATH>` with the path to your MATLAB executable and `<PAT
 Obtain a basline run for reference for your cluster using a problem size of 1e5.
 
 ## Optimising MATLAB
-Your task is to optimise `runBaselineBenchmark.m` function on a *single node*. The serial decision engine runs on a single thread presently.
+Your task is to optimise `decideLoanEligibility_serial()` function on a *single node*. The serial decision engine runs on a single thread presently.
 Parallelize this code to run across multiple threads.
 
 ## Deliverables
