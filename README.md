@@ -42,7 +42,7 @@ Good Luck!
 | HPCC & HPCG  | 20%    | <ul><li>HPCC *[7.5%]*<ul><li>High Performance Linpack (HPL) *[5%]*</li></ul><li>HPCG *[7.5%]*</li></ul>                                                 |
 | AmberMD      | 10%    | <ul><li> Benchmark 1 *[3%]*<li>Benchmark 2 *[5%]*<li>Visualization *[2%]*                                                                               |
 | ASCOT5       | 10%    | <ul><li>Benchmark 1 *[3%]* <li>Benchmark 2 <ul><li> Time *[2%]* <li> Thermilization *[2%]* <li> Multinode *[1%]*</ul></li> <li>Verification file *[2%]* |
-| DFTB+        | 10%    | <ul><li> 1000 steps *[2%]*<li> Table *[4%]*<li> 100 000 steps *[4%]*<ul>                                                                                |
+| DFTB+        | 10%    | <ul><li> 1000 steps *[2%]*<li> Table *[4%]*<li> 200 000 steps *[4%]*<ul>                                                                                |
 | HemePure     | 10%    | <ul><li> 5000 steps *[2%]*<li> Visualization *[4%]*<li> 100 000 steps *[4%]*<ul>                                                                        |
 | MathWorks    | 10%    | <ul><li>Decisions per second *[10%]*                                                                                                                    |
 | OpenFOAM     | 10%    | <ul><li>Benchmark 0 *[2%]* <li>        Iterations per hour *[8]*                                                                                        |
